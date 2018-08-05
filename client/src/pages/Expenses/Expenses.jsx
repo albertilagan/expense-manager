@@ -3,8 +3,17 @@ import { connect } from 'react-redux';
 import { fetchExpenses } from './../../actions/expenseAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from './../../components/Layout';
+import Modal from './../../components/Modal/Modal';
 
 class Expenses extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showEditModal: false,
+      showDeleteModal: false
+    }
+  }
+
   componentDidMount() {
     this.props.fetchExpenses();
   }
@@ -15,6 +24,20 @@ class Expenses extends Component {
     }
   }
 
+  editExpense(cat) {
+    this.toggleModal('showEditModal', true);
+  }
+
+  deleteExpense(cat) {
+    this.toggleModal('showDeleteModal', true);
+  }
+
+  toggleModal(key, val) {
+    this.setState({
+      [key]: val
+    });
+  }
+
   render() {
     const expenses = this.props.expenses.map(expense => (
       <tr key={expense._id}>
@@ -22,8 +45,8 @@ class Expenses extends Component {
         <td>{expense.value}</td>
         <td>{expense.category ? expense.category.title : ''}</td>
         <td>{new Date(expense.date).toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
-        <td className="action"><span><FontAwesomeIcon icon="edit" /></span></td>
-        <td className="action"><span><FontAwesomeIcon icon="trash" color="red" /></span></td>
+        <td className="action"><span onClick={() => this.editExpense(expense)}><FontAwesomeIcon icon="edit" /></span></td>
+        <td className="action"><span onClick={() => this.deleteExpense(expense)}><FontAwesomeIcon icon="trash" color="red" /></span></td>
       </tr>
     ));
     return (
@@ -51,6 +74,21 @@ class Expenses extends Component {
               </div>
             </div>
           </div>
+          <Modal show={this.state.showDeleteModal}>
+            <div className="modal-header">
+              <h5 className="modal-title">Delete Expense</h5>
+              <button type="button" className="close" aria-label="Close" onClick={() => this.toggleModal('showDeleteModal', false)}>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to delete this expense?</p>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-default" onClick={() => this.toggleModal('showDeleteModal', false)}>Cancel</button>
+              <button type="button" className="btn btn-danger">DELETE</button>
+            </div>
+          </Modal>
         </div>
       </Layout>
     )

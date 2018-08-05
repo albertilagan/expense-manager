@@ -25,12 +25,11 @@ export const api = {
   },
   // POST Method
   post: (url, payload) => {
-    url = getBaseUrl(url);
     return axios.post(getUrl(url), payload, httpConfig());
   },
   // PUT Method
-  put: (url) => {
-    return axios.post(getUrl(url), payload, httpConfig());
+  put: (url, id, payload) => {
+    return axios.put(getUrl(url + id), payload, httpConfig());
   },
   // DELETE Method
   delete: (url, id) => {
