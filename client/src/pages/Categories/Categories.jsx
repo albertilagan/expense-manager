@@ -116,12 +116,12 @@ class Categories extends Component {
           <div className="row">
             <div className="col-12">
               <div className="header d-md-flex align-items-center">
-                <h1 className="text-light mt-2">Categories</h1>
+                <h1 className="mt-2">Categories</h1>
                 <button type="button" className="btn btn-primary mt-2 mt-md-0 ml-lg-auto" onClick={this.newCategory}>CREATE NEW</button>
               </div>
               <hr />
               <div className="table-responsive">
-                <table className="table table-dark">
+                <table className="table">
                   <thead>
                     <tr>
                       <th scope="col">Title</th>
