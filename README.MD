@@ -32,9 +32,9 @@ path `server/models`
 ## Routes
 
 # categories
-`/categories` (get, post)
-`/categories/:id` (put, delete)
+`/api/categories` (get, post)
+`/api/categories/:id` (put, delete)
 
 # expenses
-`/expenses` (get, post)
-`/expenses/:id` (put, delete)
+`/api/expenses` (get, post)
+`/api/expenses/:id` (put, delete)
