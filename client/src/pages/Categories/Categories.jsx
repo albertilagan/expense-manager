@@ -16,20 +16,29 @@ class Categories extends Component {
 
   render() {
     const categories = this.props.categories.map(category => (
-      <div key={category._id}>
-        <h3>Title: <span>{category.title}</span></h3>
-        <p>Description: <span>{category.description}</span></p>
-        <hr />
-      </div>
+      <tr key={category._id}>
+        <td>{category.title}</td>
+        <td>{category.description}</td>
+      </tr>
     ));
     return (
       <Layout>
         <div id="categories" className="container">
           <div className="row">
             <div className="col-12">
-              <h1 className="mt-2">Categories</h1>
+              <h1 className="text-light mt-2">Categories</h1>
               <hr />
-              {categories}
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {categories}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

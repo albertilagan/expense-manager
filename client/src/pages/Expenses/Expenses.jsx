@@ -16,22 +16,31 @@ class Expenses extends Component {
 
   render() {
     const expenses = this.props.expenses.map(expense => (
-      <div key={expense._id}>
-        <h3>Title: <span>{expense.title}</span></h3>
-        <p>Value: <span>{expense.value}</span></p>
-        <p>Category: <span>{expense.category.title}</span></p>
-        <p>Date: <span>{new Date(expense.date).toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' })}</span></p>
-        <hr />
-      </div>
+      <tr key={expense._id}>
+        <td>{expense.title}</td>
+        <td>{expense.value}</td>
+        <td>{expense.category ? expense.category.title : ''}</td>
+        <td>{new Date(expense.date).toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+      </tr>
     ));
     return (
       <Layout>
         <div id="expenses" className="container">
           <div className="row">
             <div className="col-12">
-              <h1 className="mt-2">Expenses</h1>
+              <h1 className="text-light mt-2">Expenses</h1>
               <hr />
-              {expenses}
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {expenses}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

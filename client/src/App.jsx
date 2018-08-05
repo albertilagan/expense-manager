@@ -10,7 +10,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <div id="main-container">
+        <div id="main-container" className="bg-dark">
           <Route exact path="/" render={() => <Redirect to="/expenses" />} />
           <Route path="/expenses" component={Expenses} />
           <Route path="/categories" component={Categories} />
