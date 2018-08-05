@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchCategories } from './../../actions/categoryAction';
 import Layout from './../../components/Layout';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Categories extends Component {
   componentDidMount() {
@@ -14,11 +15,17 @@ class Categories extends Component {
     }
   }
 
+  editCategory(cat) {
+    console.log(cat);
+  }
+
   render() {
     const categories = this.props.categories.map(category => (
       <tr key={category._id}>
         <td>{category.title}</td>
         <td>{category.description}</td>
+        <td className="action"><span onClick={() => this.editCategory(category)}><FontAwesomeIcon icon="edit" /></span></td>
+        <td className="action"><span><FontAwesomeIcon icon="trash" color="red" /></span></td>
       </tr>
     ));
     return (

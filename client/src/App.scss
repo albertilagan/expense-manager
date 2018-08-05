@@ -12,8 +12,11 @@ body,
   height: 100%;
   overflow: auto;
   .table {
-    .action {
-      cursor: pointer;
+    td.action {
+      width: 60px;
+      span {
+        cursor: pointer;
+      }
     }
   }
 }

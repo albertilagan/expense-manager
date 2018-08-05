@@ -6,6 +6,10 @@ import Categories from './pages/Categories/Categories';
 import store from './store/';
 import './App.scss';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+library.add(faEdit, faTrash);
+
 const App = () => {
   return (
     <BrowserRouter>
