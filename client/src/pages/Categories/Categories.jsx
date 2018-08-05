@@ -28,7 +28,7 @@ class Categories extends Component {
             <div className="col-12">
               <h1 className="text-light mt-2">Categories</h1>
               <hr />
-              <table class="table table-dark">
+              <table className="table table-dark">
                 <thead>
                   <tr>
                     <th scope="col">Title</th>

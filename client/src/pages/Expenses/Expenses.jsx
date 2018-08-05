@@ -21,6 +21,7 @@ class Expenses extends Component {
         <td>{expense.value}</td>
         <td>{expense.category ? expense.category.title : ''}</td>
         <td>{new Date(expense.date).toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+        <td><span className="action" dangerouslySetInnerHTML={{ __html: octicons.x.toSVG() }}></span></td>
       </tr>
     ));
     return (
@@ -30,7 +31,7 @@ class Expenses extends Component {
             <div className="col-12">
               <h1 className="text-light mt-2">Expenses</h1>
               <hr />
-              <table class="table table-dark">
+              <table className="table table-dark">
                 <thead>
                   <tr>
                     <th scope="col">Title</th>
