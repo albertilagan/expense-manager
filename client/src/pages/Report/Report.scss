@@ -1,0 +1,10 @@
+#report {
+  &.container {
+    height: 100%;
+  }
+  #chart {
+    width: 80% !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+}

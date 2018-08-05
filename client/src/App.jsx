@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Expenses from './pages/Expenses/Expenses';
 import Categories from './pages/Categories/Categories';
+import Report from './pages/Report/Report';
 import store from './store/';
 import './App.scss';
 
@@ -14,10 +15,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <div id="main-container" className="bg-dark">
+        <div id="main-container">
           <Route exact path="/" render={() => <Redirect to="/expenses" />} />
           <Route path="/expenses" component={Expenses} />
           <Route path="/categories" component={Categories} />
+          <Route path="/report" component={Report} />
         </div>
       </Provider>
     </BrowserRouter>
