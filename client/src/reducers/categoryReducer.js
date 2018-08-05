@@ -20,9 +20,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         items: state.items.map(itm => {
           if (itm._id === action.payload._id) {
-            return action.payload
+            return action.payload;
           }
-          return itm
+          return itm;
         }),
         item: action.payload
       });

@@ -52,7 +52,6 @@ class Categories extends Component {
     });
   }
 
-
   showFormModal(cat) {
     this.setState({
       category: cat
@@ -85,6 +84,9 @@ class Categories extends Component {
   }
 
   saveCategory() {
+    if (!this.state.category.title || !this.state.category.description) {
+      return alert('Incomplete fields');
+    }
     if (this.state.category._id) {
       this.props.updateCategory(this.state.category);
     } else {

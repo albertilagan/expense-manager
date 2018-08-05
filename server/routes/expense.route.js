@@ -47,10 +47,15 @@ const init = (router) => {
     }
     Category.findById(data.category, (err, cat) => {
       if (err || !cat) return next('Category not exist!');
-      Expense.findByIdAndUpdate(exp_id, data, (err, payload) => {
-        if (err) return next(err.message);
-        return res.json(payload);
-      })
+      Expense.findByIdAndUpdate(
+        exp_id,
+        data,
+        { new: true })
+        .populate('category')
+        .exec((err, payload) => {
+          if (err) return next(err.message);
+          return res.json(payload);
+        });
     });
   });
 
