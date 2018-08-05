@@ -33,17 +33,22 @@ class Expenses extends Component {
             <div className="col-12">
               <h1 className="text-light mt-2">Expenses</h1>
               <hr />
-              <table className="table table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {expenses}
-                </tbody>
-              </table>
+              <div className="table-responsive">
+                <table className="table table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Value</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Date</th>
+                      <th scope="col" colSpan="2">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {expenses}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

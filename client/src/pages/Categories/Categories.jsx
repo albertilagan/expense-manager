@@ -35,17 +35,20 @@ class Categories extends Component {
             <div className="col-12">
               <h1 className="text-light mt-2">Categories</h1>
               <hr />
-              <table className="table table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {categories}
-                </tbody>
-              </table>
+              <div className="table-responsive">
+                <table className="table table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Description</th>
+                      <th scope="col" colSpan="2">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {categories}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
