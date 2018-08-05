@@ -127,7 +127,10 @@ class Expenses extends Component {
         <div id="expenses" className="container">
           <div className="row">
             <div className="col-12">
-              <h1 className="text-light mt-2">Expenses</h1>
+              <div className="header d-md-flex align-items-center">
+                <h1 className="text-light mt-2">Expenses</h1>
+                <button type="button" className="btn btn-primary mt-2 mt-md-0 ml-lg-auto" onClick={this.newExpense}>CREATE NEW</button>
+              </div>
               <hr />
               <div className="table-responsive">
                 <table className="table table-dark">

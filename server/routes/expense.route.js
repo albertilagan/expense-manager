@@ -30,7 +30,13 @@ const init = (router) => {
       if (err || !cat) return next('Category not exist!');
       newExpense.save((err, payload) => {
         if (err) return next(err.message);
-        return res.json(payload);
+        Expense
+          .findById(payload._id)
+          .populate('category')
+          .exec((err, data) => {
+            if (err) return next(err.message);
+            return res.json(data);
+          });
       });
     });
   });
