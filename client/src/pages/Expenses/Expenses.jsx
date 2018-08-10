@@ -90,7 +90,7 @@ class Expenses extends Component {
   }
 
   saveExpense() {
-    if (!this.state.expense.title || !this.state.expense.value
+    if (!this.state.expense.title || !this.state.expense.value || this.state.expense.value <= 0
       || !this.state.expense.date || !this.state.expense.category) {
       return alert('Incomplete fields');
     }
